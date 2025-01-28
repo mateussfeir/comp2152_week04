@@ -81,6 +81,9 @@ loot_options = ["Health Potion", "Poison Potion", "Secret Note", "Leather Boots"
 good_loot_options = ["Health Potion", "Leather Boots"]
 bad_loot_options = ["Poison Potion"]
 
+# Lab04 - Q4
+belt = []
+
 # Lab04 - Q1
 # Define the Monster Powers
 monster_powers = {
@@ -151,6 +154,22 @@ input("Roll the dice for the monster's health points (Press enter)")
 m_health_points = random.choice(diceOptions)
 print("Player rolled " + str(m_health_points) + " health points for the monster")
 
+# Lab04 Q5
+print("!!To find a loot bag! Look inside to find 2 items:")
+input("Roll for first item (Press Enter)")
+lootRoll = random.choice(1, len(loot_options) + 1)
+loot = loot_options.pop(lootRoll - 1)
+belt.append(loot)
+print("Your belt: ", belt)
+
+#Lab04 Q6 - item 2
+input("Roll for first item (Press Enter)")
+lootRoll = random.choice(1, len(loot_options) + 1)
+loot  = loot_options.pop(lootRoll - 1)
+belt.append(loot)
+print("Your belt: ", belt)
+
+
 input("Analyze the roll (Press enter)")
 # Compare Player vs Monster's strength
 print("--- You are matched in strength: " + str(combat_strength == m_combat_strength))
@@ -167,6 +186,7 @@ power_roll = random.choice([  "Fire Magic", "Freezing Time", "Super Hearing"])
 # Increase the monster's combat strength by it's power, without going over 6
 m_combat_strength = min(6, m_combat_strength + monster_powers[power_roll])
 print("The monster combat strength is now " + str(m_combat_strength) + " using the " + power_roll + " magic power.")
+
 # Loop while the monster and the player are alive. Call fight sequence functions
 print("You meet the monster. FIGHT!!")
 while m_health_points > 0 and health_points > 0:
